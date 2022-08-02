@@ -3,6 +3,7 @@ import Task from "./Task";
 import TaskManger from "./TaskManger";
 
 function App() {
+  
   return (
     <>
       {TaskManger.getTasks().map((item) => (
@@ -10,7 +11,7 @@ function App() {
           id={item.id}
           desc={item.desc}
           isChecked={item.isChecked}
-          handleCheck={TaskManger.updateTask}
+          updateTask={TaskManger.updateTask}
           key={item.id}></Task>
       ))}
     </>

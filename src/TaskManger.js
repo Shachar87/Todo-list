@@ -1,24 +1,22 @@
-const tasksArray = [
-    { id:1, desc: "Task 1", isChecked: true },
-    { id:2, desc: "Task 2", isChecked: false },
-    { id:3, desc: "Task 3", isChecked: true },
-  ];
-
+import tasksArray from "./data.json"
 
 function getTasks() {
-    return tasksArray;
+  return tasksArray;
 }
 
-
-function updateTask(id, desc, isChecked){
-   let task = getTasks().find((item) => item.id === id)
-   task.isChecked = isChecked;
-   task.desc = desc;
-   console.info(tasksArray)
+function updateTask(id, desc, isChecked) {
+  let task = getTasks().find((item) => item.id === id);
+  task.isChecked = isChecked;
+  task.desc = desc;
+  getTasks().forEach((item) => {
+    let info = `${item.isChecked? "V":"O"} ${item.desc}`
+    console.info(info);
+  });
 }
 
 const TaskManger = {
-    getTasks, updateTask
-}
+  getTasks,
+  updateTask,
+};
 
-export default TaskManger
+export default TaskManger;
