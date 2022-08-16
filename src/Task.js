@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 function Task(props) {
   const [isHighlighted, setIsHighlighted] = useState(false);
-  const { id, desc, isChecked, updateTask } = props;
+  const { id, desc, isChecked, onCheckChanged } = props;
 
   function handleChecked(e) {
     console.info("highlight active");
@@ -12,7 +12,7 @@ function Task(props) {
       console.info("non highlight active");
       setIsHighlighted(false);
     }, 500);
-    updateTask(id, desc, e.target.checked);
+    onCheckChanged(id, desc, e.target.checked);
   }
 
   return (

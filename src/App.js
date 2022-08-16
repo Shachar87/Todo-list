@@ -2,17 +2,22 @@ import React from "react";
 import Task from "./Task";
 import TaskManger from "./TaskManger";
 
+function updateTask(id, desc, isChecked) {
+  console.log("Update task")
+  TaskManger.updateTask(id, desc, isChecked)
+}
+
 function App() {
-  
-  return (
+ return (
     <>
       {TaskManger.getTasks().map((item) => (
-        <Task 
+        <Task
           id={item.id}
           desc={item.desc}
           isChecked={item.isChecked}
-          updateTask={TaskManger.updateTask}
-          key={item.id}></Task>
+          onCheckChanged={updateTask}
+          key={item.id}
+        ></Task>
       ))}
     </>
   );
